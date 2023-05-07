@@ -1,0 +1,37 @@
+﻿  소스의 유효성을 검사하는 중
+  소스를 '10.10.141.67'(으)로 원격으로 복사하는 중
+  아키텍처의 유효성을 검사하는 중
+  아키텍처의 유효성을 검사하는 중
+  원격 빌드를 시작하는 중
+  소스를 컴파일하는 중:
+  client_test.c
+  server_test.c
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(9,12): warning : passing argument 1 of ‘htonl’ makes integer from pointer without a cast [-Wint-conversion]
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(9,12): warning :     9 | #define IP "10.10.141.67"
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(9,12): warning :       |            ^~~~~~~~~~~~~~
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(9,12): warning :       |            |
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(9,12): warning :       |            char *
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(29,38): message : in expansion of macro ‘IP’
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(29,38): message :    29 |     servaddr.sin_addr.s_addr = htonl(IP);
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(29,38): message :       |                                      ^~
+/usr/include/netinet/in.h(378,33): message : expected ‘uint32_t’ {aka ‘unsigned int’} but argument is of type ‘char *’
+/usr/include/netinet/in.h(378,33): message :   378 | extern uint32_t htonl (uint32_t __hostlong)
+/usr/include/netinet/in.h(378,33): message :       |                        ~~~~~~~~~^~~~~~~~~~
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(50,38): warning : passing argument 2 of ‘accept’ from incompatible pointer type [-Wincompatible-pointer-types]
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(50,38): warning :    50 |         int n, csock = accept(ssock, (struct server_sock*)&cliaddr, &clen);
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(50,38): warning :       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(50,38): warning :       |                                      |
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(50,38): warning :       |                                      struct server_sock *
+/usr/include/arm-linux-gnueabihf/sys/socket.h(232,45): message : expected ‘struct sockaddr * restrict’ but argument is of type ‘struct server_sock *’
+/usr/include/arm-linux-gnueabihf/sys/socket.h(232,45): message :   232 | extern int accept (int __fd, __SOCKADDR_ARG __addr,
+/usr/include/arm-linux-gnueabihf/sys/socket.h(232,45): message :       |                                             ^
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(62,32): warning : conversion to ‘size_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(62,32): warning :    62 |         if (write(csock, mesg, n) <= 0)
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(62,32): warning :       |                                ^
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(15,9): warning : unused variable ‘n’ [-Wunused-variable]
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(15,9): warning :    15 |     int n;
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(15,9): warning :       |         ^
+  개체를 연결하는 중
+/usr/bin/ld : error : /home/pi/projects/team project_serial communication/obj/ARM/Debug/server_test.o: in function `main':
+C:\Users\IoT21\Desktop\team project_serial communication\server_test.c(12): error : multiple definition of `main'; /home/pi/projects/team project_serial communication/obj/ARM/Debug/client_test.o:/home/pi/projects/team project_serial communication/client_test.c:12: first defined here
+collect2 : error : ld returned 1 exit status
